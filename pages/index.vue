@@ -1,32 +1,20 @@
 <template>
   <div class="container">
-    <div>
-      <div class="links"></div>
-      <film-row :movies="movies"></film-row>
-    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import filmRow from '~/components/filmRow.vue'
+
+
 
 export default Vue.extend({
-  components: { filmRow },
+  components: 
+  {
+   },
   data: () => {
     return {
-      movies: [
-        {
-          id: 0,
-          title: 'bla',
-          description: 'blub',
-        },
-        {
-          id: 1,
-          title: 'bla1',
-          description: 'blub1',
-        },
-      ],
+      
     }
   },
 })

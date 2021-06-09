@@ -1,0 +1,96 @@
+<template>
+  <div>
+    <div class="flex justify-center "><swiper></swiper></div>
+    <div class="container justify-items-center"> 
+      <film-list :filmList="filmItemList"></film-list>
+    </div>
+  </div>
+  
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+import filmRow from '~/components/filmRow.vue'
+import swiper from '~/components/Commen/swiper.vue'
+import filmList from '~/components/Commen/FilmList.vue'
+import {request} from '~/network/request.js'
+
+
+export default Vue.extend({
+  components: 
+  { filmRow,
+    swiper,
+    filmList
+   },
+  data: () => {
+    return {
+      movies: [
+        {
+          id: 0,
+          title: 'bla',
+          description: 'blub',
+        },
+        {
+          id: 1,
+          title: 'bla1',
+          description: 'blub1',
+        },
+      ],
+      filmItemList:[
+
+      ]
+    }
+  },
+  mounted(){
+    this.getFilmList()
+  },
+  methods:{
+    async getFilmList(){
+        request({
+          url:'https://api.npoint.io/6854f40b630b30e24ccb'
+        },
+          (res: { data: Object })=>{
+          this.filmItemList = res.data.filmList
+        })
+    }
+  }
+})
+</script>
+
+<style>
+.container {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.title {
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 100px;
+  color: #35495e;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 42px;
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
+
+.links {
+  padding-top: 10px;
+}
+
+
+
+
+</style>

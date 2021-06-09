@@ -1,8 +1,28 @@
 <template>
-  <div>
-    <Nuxt />
+  <div class="box1">
+    <nav-bar></nav-bar>
+    <Nuxt class="box2"/>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+import navBar from '~/components/Home/FilmeNavBar.vue'
+
+
+
+export default Vue.extend({
+  components: 
+  {
+    navBar
+   },
+  data: () => {
+    return {
+      
+    }
+  },
+})
+</script>
 
 <style>
 html {
@@ -15,9 +35,18 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  
+  
 }
 
-*,
+body {
+  height: 100%;
+  width: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
 *::before,
 *::after {
   box-sizing: border-box;
@@ -52,4 +81,17 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+
+.box1 {
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+}
+
+.box2 {
+  height: calc(100% - 150px);
+  margin-top: 150px;
+  overflow-y: auto;
+}
+
 </style>

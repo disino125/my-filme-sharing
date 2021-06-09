@@ -1,7 +1,10 @@
 <template>
 <div class="wrapper flex flex-col flex-1">
-  <div class="flex flex-col" ref="movieRow overflow-auto">
-      <film-card v-for="movie in movies" :key="movie.id" :movie="movie"></film-card>
+  <div class="flex justify-center" ref="movieRow overflow-auto">
+      <film-card v-for="movie in movies" :key="movie.id" :movie="movie">
+          
+      </film-card>
+      
   </div>
   <span v-on:click="scrollWrapper" >next</span>
 </div>

@@ -8,8 +8,12 @@ export default {
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    // bodyAttrs: {
+    //   class: 'body-class',
+    // },
   },
 
+  
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
@@ -23,7 +27,8 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    'nuxt-windicss',
+    // 'nuxt-windicss',
+    '@nuxtjs/tailwindcss'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .film_card {
+      @apply  bg-blue-600 p-8;
+      @apply p-8
+    }
+  }
