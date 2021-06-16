@@ -7,4 +7,16 @@
       @apply  bg-blue-600 p-8;
       @apply p-8
     }
+
+    .back_bgc {
+      @apply bg-yellow-400
+    }
+
+    .ausleihen{
+      @apply mt-20 h-16 w-28  text-xl pt-3 bg-yellow-400 font-extrabold rounded-md text-center overflow-hidden text-blue-500
+    }
+
+    .ausleihen_change_color{
+      @apply bg-blue-500 text-white
+    }
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="box1">
-    <nav-bar></nav-bar>
+    
     <Nuxt class="box2"/>
   </div>
 </template>

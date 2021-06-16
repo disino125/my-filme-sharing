@@ -1,6 +1,6 @@
 <template>
     <div class="mt-0 bg-gray-200 fix">
-        <div class="flex justify-center  mb-0">
+        <div class="flex justify-center mb-0">
             <slot></slot>
         </div>
     </div>

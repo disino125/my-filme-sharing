@@ -1,20 +1,18 @@
 <template>
     <div>
-        <nav-bar></nav-bar>
-        <h3>account</h3>
+        <nav-bar :cateName="$route.query.cateName"></nav-bar>
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue'
-import navBar from '~/components/Home/FilmeNavBar.vue'
+import navBar from '~/components/Home/KategorieNavBar.vue'
 
 export default Vue.extend({
     components:{
         navBar
     }
-}) 
-    
+})
 </script>
 
 <style scoped>

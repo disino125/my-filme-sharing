@@ -1,16 +1,18 @@
 <template>
   <div class="container">
+    <nav-bar></nav-bar>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-
+import navBar from '~/components/Home/FilmeNavBar.vue'
 
 
 export default Vue.extend({
   components: 
   {
+    navBar
    },
   data: () => {
     return {

@@ -1,8 +1,15 @@
 <template>
   <div>
+    <nav-bar></nav-bar>
     <div class="flex justify-center "><swiper></swiper></div>
-    <div class="container justify-items-center"> 
-      <film-list :filmList="filmItemList"></film-list>
+    <div class="container"> 
+      <div v-for="cate,index in categories"
+      :cateName="cate"
+      :key="index" class="grid justify-items-center">
+        <film-list :filmList="filmItemList" :cateName="cate" class="p-8"/>
+      
+      </div>
+      
     </div>
   </div>
   
@@ -10,15 +17,17 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import navBar from '~/components/Home/FilmeNavBar.vue'
 import filmRow from '~/components/filmRow.vue'
 import swiper from '~/components/Commen/swiper.vue'
-import filmList from '~/components/Commen/FilmList.vue'
+import filmList from '~/components/Home/FilmList.vue'
 import {request} from '~/network/request.js'
 
 
 export default Vue.extend({
   components: 
-  { filmRow,
+  { navBar,
+    filmRow,
     swiper,
     filmList
    },
@@ -36,12 +45,11 @@ export default Vue.extend({
           description: 'blub1',
         },
       ],
-      filmItemList:[
-
-      ]
+      filmItemList:[],
+      categories:['Neue Filme','Action','Comedy','History','Sport']
     }
   },
-  mounted(){
+  created(){
     this.getFilmList()
   },
   methods:{
@@ -61,7 +69,7 @@ export default Vue.extend({
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   text-align: center;

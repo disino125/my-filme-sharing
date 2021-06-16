@@ -1,5 +1,6 @@
 <template>
     <nav-bar>
+        <img v-if="showBack()" @click="goBack" src="/back.png" class="h-12 w-12 mt-7"/>
         <nav-bar-item path="/Filme">
           <div>Filme</div>
         </nav-bar-item>
@@ -35,7 +36,13 @@ export default Vue.extend({
         
     },
     methods : {
-       
+       showBack(){
+        return this.$route.path.indexOf('/Detail') !== -1
+        
+       },
+       goBack(){
+         this.$router.go(-1)
+       }
     }
 })
 </script> 
