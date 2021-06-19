@@ -1,33 +1,33 @@
 <template>
     <div class="box2">
         <nav-bar :cateName="$route.query.cateName"></nav-bar>
-        <film-list :filmList="filmList"></film-list>
+        <tv-list :filmList="tvList"></tv-list>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import navBar from '~/components/Home/KategorieNavBar.vue'
-import filmList from '~/components/Home/FilmList.vue'
+import tvList from '~/components/Home/FilmList.vue'
 import axios from 'axios'
 
 export default Vue.extend({
     components:{
         navBar,
-        filmList
+        tvList
     },
     data:()=>{
         return {
-            filmList:[],
+            tvList:[],
         }
     },
     created(){
-        this.getFilms(this.$route.query.cateName)
+        this.getTVs(this.$route.query.cateName)
     },
     methods:{
-        async getFilms(cate: any){
-            const {data:res} = await axios.get(`api/filmList/${cate}`)
-            this.filmList = res.data
+        async getTVs(cate: any){
+            const {data:res} = await axios.get(`api/tvList/${cate}`)
+            this.tvList = res.data
             console.log(res.data);
         }
     }

@@ -21,12 +21,22 @@ export default Vue.extend({
     },
     methods : {
        itemClick(){
-           this.$router.push({
-               path:'/Filme/Detail',
-               query:{
-                   id: this.filmItem.id
-               }
-           })
+           if(this.$route.path.indexOf('Film') != -1){
+               this.$router.push({
+                    path:'/Filme/Detail',
+                    query:{
+                        id: this.filmItem.id
+                    }
+                })
+           } else {
+               this.$router.push({
+                    path:'/Serien/Detail',
+                    query:{
+                        id: this.filmItem.id
+                    }
+                })
+           }
+           
        }
     }
 })

@@ -1,9 +1,9 @@
 <template>
     <div>
         <nav-bar>
-            <div class="flex justify-between items-center">
-                <div class=""><img @click="goBack" src="/back.png" class="h-18 w-20 mt-7"/></div>
-                <div class="text-3xl">{{cateName}}</div>
+            <div class="flex items-center mt-8">
+                <button class="w-14 h-14"><img @click="goBack" src="/back.png" class=""/></button>
+                <div class="text-3xl h-11 ">{{cateName}}</div>
             </div>   
         </nav-bar>
     </div>
@@ -24,11 +24,12 @@ export default Vue.extend({
     methods:{
         goBack(){
             this.$router.go(-1)
-        }
+        },
+        
     }
 })
 </script>
 
 <style scoped>
-    
+   
 </style>
