@@ -31,7 +31,7 @@ export default Vue.extend({
     this.getFilm()
   },
   methods:{
-    async getFilm(){
+     getFilm(){
         // let {data} = await axios.get('https://api.npoint.io/782b8e4db616969d96a2')
         // this.film = data
         request({

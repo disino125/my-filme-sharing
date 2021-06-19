@@ -1,20 +1,20 @@
 <template>
   <div class="box1">
     
-    <Nuxt class="box2"/>
+    <Nuxt/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import navBar from '~/components/Home/FilmeNavBar.vue'
+
 
 
 
 export default Vue.extend({
   components: 
   {
-    navBar
+    
    },
   data: () => {
     return {
@@ -35,7 +35,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  
+  height: 100%;
   
 }
 
@@ -88,10 +88,14 @@ body {
   overflow-y: hidden;
 }
 
-.box2 {
-  height: calc(100% - 150px);
-  margin-top: 150px;
-  overflow-y: auto;
+#__layout {
+  height: 100%;
+  width: 100%;
+}
+
+#__nuxt{
+  height: 100%;
+  width: 100%;
 }
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="box2">
         <nav-bar></nav-bar>
         <h3>account</h3>
     </div>
@@ -18,5 +18,9 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-
+.box2 {
+  height: calc(100% - 150px);
+  margin-top: 150px;
+  overflow-y: auto;
+}
 </style>

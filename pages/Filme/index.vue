@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box2">
     <nav-bar></nav-bar>
     <div class="flex justify-center "><swiper></swiper></div>
     <div class="container"> 
@@ -21,7 +21,7 @@ import navBar from '~/components/Home/FilmeNavBar.vue'
 import filmRow from '~/components/filmRow.vue'
 import swiper from '~/components/Commen/swiper.vue'
 import filmList from '~/components/Home/FilmList.vue'
-import {request} from '~/network/request.js'
+import axios from 'axios'
 
 
 export default Vue.extend({
@@ -54,12 +54,16 @@ export default Vue.extend({
   },
   methods:{
     async getFilmList(){
-        request({
-          url:'https://api.npoint.io/6854f40b630b30e24ccb'
-        },
-          (res: { data: Object })=>{
-          this.filmItemList = res.data.filmList
-        })
+        // request({
+        //   url:'https://api.npoint.io/6854f40b630b30e24ccb'
+        // },
+        //   (res: { data: Object })=>{
+        //   this.filmItemList = res.data.filmList
+        // })
+        let {data:res} = await axios.get('api/filmList')
+        for(let i = 0;i<8;i++){
+          this.filmItemList.push(res.data[i])
+        }
     }
   }
 })
@@ -98,7 +102,11 @@ export default Vue.extend({
   padding-top: 10px;
 }
 
-
+.box2 {
+  height: calc(100% - 150px);
+  margin-top: 150px;
+  overflow-y: auto;
+}
 
 
 </style>
