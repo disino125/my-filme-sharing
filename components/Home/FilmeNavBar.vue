@@ -5,19 +5,13 @@
           <div>Filme</div>
         </nav-bar-item>
         <nav-bar-item path="/Serien">
-          <div>
-            <div>Serien</div>
-          </div>
+          <div>Serien</div>
         </nav-bar-item>
         <nav-bar-item path="/Kasse">
-          <div>
-            <div>Kasse</div>
-          </div>
+          <div>{{setKasse}}</div>
         </nav-bar-item>
         <nav-bar-item path="/Konto">
-          <div>
-            <div>Konto</div>
-          </div>
+          <div>Konto</div>
         </nav-bar-item>
       </nav-bar>
 </template>
@@ -26,8 +20,14 @@
 import Vue from 'vue'
 import navBar from '~/components/Commen/navBar.vue'
 import navBarItem from '~/components/Commen/navBarItem.vue'
+import {mapGetters} from 'vuex'
 
 export default Vue.extend({
+  data(){
+    return {
+      
+    }
+  },
     components: {
          navBar,
          navBarItem
@@ -42,8 +42,18 @@ export default Vue.extend({
        },
        goBack(){
          this.$router.go(-1)
-       }
-    }
+       },
+      
+    },
+   
+    computed:{
+        ...mapGetters(['cartLength']),
+        
+         setKasse(){
+          return (this.cartLength>0?`Kasse(${this.cartLength})`:'Kasse')
+        }
+    },
+    
 })
 </script> 
 

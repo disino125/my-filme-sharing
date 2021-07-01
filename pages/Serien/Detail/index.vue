@@ -14,7 +14,7 @@
             :class="{ausleihen_change_color:isActive}"
             @mouseover="changeColor"
             @mouseleave="returnColor">
-                <div>Ausleihen</div>
+                <div @click="addToCart">Cart</div>
             </div>
         </div>
         
@@ -53,8 +53,18 @@ export default Vue.extend({
 
         async getTVDetail(id){
             this.id = id
-            let {data:res} = await axios.get(`api/tvDetail/${id}`)
+            let {data:res} = await axios.get(`https://127.0.0.1:3000/api/tvDetail/${id}`)
             this.tv = res.data.tvInfos
+        },
+
+        addToCart(){
+            const item = {}
+            item.img = this.tv.img
+            item.title = this.tv.title
+            item.date = this.tv.date
+            item.id = this.id
+            item.count = 1
+            this.$store.commit('addCart',item)
         }
     }
 

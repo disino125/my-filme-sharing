@@ -28,7 +28,6 @@ export default Vue.extend({
         async getTVs(cate: any){
             const {data:res} = await axios.get(`api/tvList/${cate}`)
             this.tvList = res.data
-            console.log(res.data);
         }
     }
 })

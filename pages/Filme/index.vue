@@ -60,10 +60,10 @@ export default Vue.extend({
         //   (res: { data: Object })=>{
         //   this.filmItemList = res.data.filmList
         // })
-        let {data:res} = await axios.get('api/filmList')
-        for(let i = 0;i<8;i++){
-          this.filmItemList.push(res.data[i])
-        }
+        let {data:res} = await axios.get('https://127.0.0.1:3000/api/newMediens')
+        
+        this.filmItemList = res.data
+        
     }
   }
 })

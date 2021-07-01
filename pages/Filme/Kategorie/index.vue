@@ -28,7 +28,6 @@ export default Vue.extend({
         async getFilms(cate: any){
             const {data:res} = await axios.get(`api/filmList/${cate}`)
             this.filmList = res.data
-            console.log(res.data);
         }
     }
 })
